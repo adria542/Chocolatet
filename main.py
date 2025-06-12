@@ -1,5 +1,5 @@
 from flask import Flask, request
-from telegram import Update, Bot
+from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from datetime import datetime, timedelta
 import json
@@ -8,7 +8,6 @@ import asyncio
 import threading
 
 TOKEN = os.getenv("BOT_TOKEN")
-bot = Bot(token=TOKEN)
 
 DATA_FILE = "cita.json"
 
@@ -65,36 +64,34 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 app = Flask(__name__)
 
-# Construye la aplicación, agrega handlers
+# Creamos la aplicación
 application = Application.builder().token(TOKEN).build()
 application.add_handler(CommandHandler("start", start))
 application.add_handler(CommandHandler("set", set_cita))
 application.add_handler(CommandHandler("falta", cuanto_falta))
 
-# Inicializar y arrancar el Application en un hilo aparte
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-def start_bot():
-    async def runner():
-        await application.initialize()
-        await application.start()
-        # No await application.updater.start_polling() porque usas webhook
-        # Mantener el bot corriendo indefinidamente
-        while True:
-            await asyncio.sleep(3600)
-    loop.run_until_complete(runner())
+async def start_app():
+    await application.initialize()  # Inicializa internamente el bot también
+    await application.start()
+    # Mantener vivo el loop para que el bot no cierre
+    while True:
+        await asyncio.sleep(3600)
 
-threading.Thread(target=start_bot, daemon=True).start()
+def run_bot():
+    loop.run_until_complete(start_app())
+
+threading.Thread(target=run_bot, daemon=True).start()
 
 @app.route(f"/webhook/{TOKEN}", methods=["POST"])
 def webhook_handler():
     json_update = request.get_json(force=True)
-    update = Update.de_json(json_update, bot)
-    # Ejecutar process_update en el loop async ya creado
+    update = Update.de_json(json_update, application.bot)  # Usar bot ya inicializado en application
     future = asyncio.run_coroutine_threadsafe(application.process_update(update), loop)
     try:
-        future.result(timeout=10)  # Espera máximo 10 segundos a procesar el update
+        future.result(timeout=10)
     except Exception as e:
         print(f"Error procesando update: {e}")
         return "Error", 500
@@ -106,8 +103,8 @@ def home():
 
 @app.route("/set-webhook", methods=["GET"])
 def set_webhook():
-    webhook_url = f"https://chocolatet.onrender.com/webhook/{TOKEN}"
-    success = bot.set_webhook(url=webhook_url)
+    webhook_url = f"https://tu-dominio.com/webhook/{TOKEN}"
+    success = loop.run_until_complete(application.bot.set_webhook(url=webhook_url))
     return f"Webhook {'creado con éxito' if success else 'falló'}"
 
 if __name__ == "__main__":
