@@ -87,3 +87,8 @@ def set_webhook():
     webhook_url = f"https://chocolatet.onrender.com/webhook/{TOKEN}"
     success = bot.set_webhook(url=webhook_url)
     return f"Webhook {'creado con éxito' if success else 'falló'}"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+
