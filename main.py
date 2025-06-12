@@ -5,11 +5,11 @@ from datetime import datetime, timedelta
 import json
 import os
 import asyncio
+import threading
 
 TOKEN = os.getenv("BOT_TOKEN")
 bot = Bot(token=TOKEN)
 
-# Datos
 DATA_FILE = "cita.json"
 
 def guardar_cita(fecha_str):
@@ -22,7 +22,6 @@ def cargar_cita():
             return json.load(f).get("cita")
     return None
 
-# Comandos
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         "¡Hola! Soy un bot creado para Valentina y Adrià. Escribe /set para guardar una cita y /falta para ver cuánto falta 🤍"
@@ -64,18 +63,41 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
             f"Faltan {dias} días, {horas} horas, {minutos} minutos y {segundos} segundos para la cita. ⏳"
         )
 
-# Flask + Webhook
 app = Flask(__name__)
 
+# Construye la aplicación, agrega handlers
 application = Application.builder().token(TOKEN).build()
 application.add_handler(CommandHandler("start", start))
 application.add_handler(CommandHandler("set", set_cita))
 application.add_handler(CommandHandler("falta", cuanto_falta))
 
+# Inicializar y arrancar el Application en un hilo aparte
+loop = asyncio.new_event_loop()
+asyncio.set_event_loop(loop)
+
+def start_bot():
+    async def runner():
+        await application.initialize()
+        await application.start()
+        # No await application.updater.start_polling() porque usas webhook
+        # Mantener el bot corriendo indefinidamente
+        while True:
+            await asyncio.sleep(3600)
+    loop.run_until_complete(runner())
+
+threading.Thread(target=start_bot, daemon=True).start()
+
 @app.route(f"/webhook/{TOKEN}", methods=["POST"])
 def webhook_handler():
-    update = Update.de_json(request.get_json(force=True), bot)
-    asyncio.run(application.process_update(update))
+    json_update = request.get_json(force=True)
+    update = Update.de_json(json_update, bot)
+    # Ejecutar process_update en el loop async ya creado
+    future = asyncio.run_coroutine_threadsafe(application.process_update(update), loop)
+    try:
+        future.result(timeout=10)  # Espera máximo 10 segundos a procesar el update
+    except Exception as e:
+        print(f"Error procesando update: {e}")
+        return "Error", 500
     return "ok", 200
 
 @app.route("/", methods=["GET"])
@@ -91,4 +113,3 @@ def set_webhook():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
