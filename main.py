@@ -48,7 +48,6 @@ async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("Formato incorrecto. Usa: /set 2025-06-15 20:00")
 
 async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    print("Entró al handler /falta")
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
     cita_str = cargar_cita()
     if not cita_str:
