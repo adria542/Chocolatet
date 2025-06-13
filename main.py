@@ -23,7 +23,7 @@ def cargar_cita():
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
-    print(f"[{user}] Inició el bot con /start")
+    print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
         "¡Hola! Soy un bot creado para Valentina y Adrià. Escribe /set para guardar una cita y /falta para ver cuánto falta 🤍"
     )
@@ -32,7 +32,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
     if not context.args:
-        print(f"[{user}] Usó /set sin argumentos")
+        print(f"[{user}] Usó /set sin argumentos", flush=True)
         await update.message.reply_text("Usa el formato: /set YYYY-MM-DD HH:MM")
         return
 
@@ -41,10 +41,10 @@ async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
         dt = datetime.strptime(fecha_str, "%Y-%m-%d %H:%M")
         cita_str = dt.replace(second=0).strftime("%Y-%m-%d %H:%M:%S")
         guardar_cita(cita_str)
-        print(f"[{user}] Guardó una cita: {cita_str}")
+        print(f"[{user}] Guardó una cita: {cita_str}", flush=True)
         await update.message.reply_text(f"Cita guardada para: {cita_str}")
     except ValueError:
-        print(f"[{user}] Usó /set con formato inválido: {fecha_str}")
+        print(f"[{user}] Usó /set con formato inválido: {fecha_str}", flush=True)
         await update.message.reply_text("Formato incorrecto. Usa: /set 2025-06-15 20:00")
 
 async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -52,7 +52,7 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
     cita_str = cargar_cita()
     if not cita_str:
-        print(f"[{user}] Usó /falta pero no hay cita guardada.")
+        print(f"[{user}] Usó /falta pero no hay cita guardada.", flush=True)
         await update.message.reply_text("No hay ninguna cita guardada.")
         return
 
@@ -61,7 +61,7 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
     diferencia = cita - ahora
 
     if diferencia.total_seconds() <= 0:
-        print(f"[{user}] Usó /falta: la cita ya pasó o es ahora mismo.")
+        print(f"[{user}] Usó /falta: la cita ya pasó o es ahora mismo.", flush=True)
         await update.message.reply_text("¡La cita ya pasó o es ahora mismo! Divertíos")
     else:
         total_segundos = int(diferencia.total_seconds())
@@ -69,7 +69,7 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
         horas = (total_segundos % 86400) // 3600
         minutos = (total_segundos % 3600) // 60
         segundos = total_segundos % 60
-        print(f"[{user}] Usó /falta: faltan {dias}d {horas}h {minutos}m {segundos}s")
+        print(f"[{user}] Usó /falta: faltan {dias}d {horas}h {minutos}m {segundos}s", flush=True)
         await update.message.reply_text(
             f"Faltan {dias} días, {horas} horas, {minutos} minutos y {segundos} segundos para la cita. ⏳"
         )
