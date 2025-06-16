@@ -114,7 +114,7 @@ application.add_handler(CommandHandler("falta", cuanto_falta))
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
 
-@app.route("/procesar-logs", methods=["POST"])
+@app.route("/procesar-logs", methods=["GET"])
 def procesar_logs():
     lock.acquire()
     try:
