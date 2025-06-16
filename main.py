@@ -11,6 +11,54 @@ import requests
 TOKEN = os.getenv("BOT_TOKEN")
 DATA_FILE = "cita.json"
 GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwMrvIWmTHWzGp0UYlu1d0NcSXZT_8Bc3d_ZGbq-h2bLUJ7phsjTwjb7koyCIj56ptD/exec"
+LOG_BUFFER_FILE = "log_buffer.json"
+lock = threading.Lock()
+
+def añadir_log_buffer(usuario, comando):
+    lock.acquire()
+    try:
+        if os.path.exists(LOG_BUFFER_FILE):
+            with open(LOG_BUFFER_FILE, "r") as f:
+                data = json.load(f)
+        else:
+            data = []
+
+        data.append({"usuario": usuario, "comando": comando, "fecha": datetime.now().isoformat()})
+
+        with open(LOG_BUFFER_FILE, "w") as f:
+            json.dump(data, f)
+    finally:
+        lock.release()
+
+@app.route("/procesar-logs", methods=["POST"])
+def procesar_logs():
+    lock.acquire()
+    try:
+        if not os.path.exists(LOG_BUFFER_FILE):
+            return "No logs", 200
+
+        with open(LOG_BUFFER_FILE, "r") as f:
+            logs = json.load(f)
+
+        if not logs:
+            return "No logs", 200
+
+        # Enviar logs uno a uno (o implementar envío en batch si Google Apps Script lo permite)
+        for log in logs:
+            try:
+                requests.post(GOOGLE_SCRIPT_WEBHOOK,
+                              json={"usuario": log["usuario"], "comando": log["comando"]},
+                              timeout=5)
+            except Exception as e:
+                print(f"Error enviando log a Google Sheets: {e}", flush=True)
+
+        # Limpiar buffer
+        with open(LOG_BUFFER_FILE, "w") as f:
+            json.dump([], f)
+
+        return "Logs procesados", 200
+    finally:
+        lock.release()
 
 def guardar_cita(fecha_str):
     with open(DATA_FILE, "w") as f:
@@ -32,7 +80,7 @@ def registrar_evento(usuario, comando):
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
-    registrar_evento(user, "/start")
+    añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
         "¡Hola! Soy un bot creado para Valentina y Adrià. Escribe /set para guardar una cita y /falta para ver cuánto falta 🤍"
@@ -41,7 +89,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
-    registrar_evento(user, "/set")
+    añadir_log_buffer(user, "/set")
     if not context.args:
         print(f"[{user}] Usó /set sin argumentos", flush=True)
         await update.message.reply_text("Usa el formato: /set YYYY-MM-DD HH:MM")
@@ -60,7 +108,7 @@ async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
-    registrar_evento(user, "/falta")
+    añadir_log_buffer(user, "/falta")
     cita_str = cargar_cita()
     if not cita_str:
         print(f"[{user}] Usó /falta pero no hay cita guardada.", flush=True)
