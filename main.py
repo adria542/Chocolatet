@@ -30,36 +30,6 @@ def añadir_log_buffer(usuario, comando):
     finally:
         lock.release()
 
-@app.route("/procesar-logs", methods=["POST"])
-def procesar_logs():
-    lock.acquire()
-    try:
-        if not os.path.exists(LOG_BUFFER_FILE):
-            return "No logs", 200
-
-        with open(LOG_BUFFER_FILE, "r") as f:
-            logs = json.load(f)
-
-        if not logs:
-            return "No logs", 200
-
-        # Enviar logs uno a uno (o implementar envío en batch si Google Apps Script lo permite)
-        for log in logs:
-            try:
-                requests.post(GOOGLE_SCRIPT_WEBHOOK,
-                              json={"usuario": log["usuario"], "comando": log["comando"]},
-                              timeout=5)
-            except Exception as e:
-                print(f"Error enviando log a Google Sheets: {e}", flush=True)
-
-        # Limpiar buffer
-        with open(LOG_BUFFER_FILE, "w") as f:
-            json.dump([], f)
-
-        return "Logs procesados", 200
-    finally:
-        lock.release()
-
 def guardar_cita(fecha_str):
     with open(DATA_FILE, "w") as f:
         json.dump({"cita": fecha_str}, f)
@@ -143,6 +113,36 @@ application.add_handler(CommandHandler("falta", cuanto_falta))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
+
+@app.route("/procesar-logs", methods=["POST"])
+def procesar_logs():
+    lock.acquire()
+    try:
+        if not os.path.exists(LOG_BUFFER_FILE):
+            return "No logs", 200
+
+        with open(LOG_BUFFER_FILE, "r") as f:
+            logs = json.load(f)
+
+        if not logs:
+            return "No logs", 200
+
+        # Enviar logs uno a uno (o implementar envío en batch si Google Apps Script lo permite)
+        for log in logs:
+            try:
+                requests.post(GOOGLE_SCRIPT_WEBHOOK,
+                              json={"usuario": log["usuario"], "comando": log["comando"]},
+                              timeout=5)
+            except Exception as e:
+                print(f"Error enviando log a Google Sheets: {e}", flush=True)
+
+        # Limpiar buffer
+        with open(LOG_BUFFER_FILE, "w") as f:
+            json.dump([], f)
+
+        return "Logs procesados", 200
+    finally:
+        lock.release()
 
 async def start_app():
     await application.initialize()  # Inicializa internamente el bot también
