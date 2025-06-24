@@ -104,8 +104,7 @@ async def cuanto_falta(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
 
 async def mes_mensaje(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text(
-        """Hola, Chocolatet. Hoy hace un mes que empezamos a hablar. Y para hoy me ha apetecido contarte cómo he vivido este último mes.
+     mensaje_largo = """Hola, Chocolatet. Hoy hace un mes que empezamos a hablar. Y para hoy me ha apetecido contarte cómo he vivido este último mes.
     
         Este último mes ha sido en el que más cosas he sentido en mi vida. Ha habido momentos en los que pensaba que el mundo se me iba a comer y momentos en los que he estado más feliz que nunca. Pero en todos ellos has estado tú.
     
@@ -138,7 +137,10 @@ async def mes_mensaje(update: Update, context: ContextTypes.DEFAULT_TYPE):
         Por último, tengo que decirte que espero que este mes no sea algo esporádico que vaya a recordar con cariño, sino que sea algo que se alargue en el tiempo y que pueda preparar contigo más recetas, pueda escribirte más textos y que pueda vivir más contigo, Chocolatet.
     
         Muchas gracias 🤍"""
-    )
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
 
 app = Flask(__name__)
 
