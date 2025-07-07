@@ -14,7 +14,7 @@ GOOGLE_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwMrvIWmTHWzGp0
 LOG_BUFFER_FILE = "log_buffer.json"
 lock = threading.Lock()
 
-def añadir_log_buffer(usuario, comando):
+def añadir_log_buffer(usuario, comando, fecha=None):
     lock.acquire()
     try:
         if os.path.exists(LOG_BUFFER_FILE):
@@ -23,7 +23,8 @@ def añadir_log_buffer(usuario, comando):
         else:
             data = []
 
-        data.append({"usuario": usuario, "comando": comando, "fecha": datetime.now().isoformat()})
+        log = {"usuario": usuario, "comando": comando, "fecha": fecha or datetime.now().isoformat()}
+        data.append(log)
 
         with open(LOG_BUFFER_FILE, "w") as f:
             json.dump(data, f)
@@ -59,7 +60,6 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user = update.effective_user.first_name if update.effective_user else "Usuario desconocido"
-    añadir_log_buffer(user, "/set")
     if not context.args:
         print(f"[{user}] Usó /set sin argumentos", flush=True)
         await update.message.reply_text("Usa el formato: /set YYYY-MM-DD HH:MM")
@@ -70,6 +70,7 @@ async def set_cita(update: Update, context: ContextTypes.DEFAULT_TYPE):
         dt = datetime.strptime(fecha_str, "%Y-%m-%d %H:%M")
         cita_str = dt.replace(second=0).strftime("%Y-%m-%d %H:%M:%S")
         guardar_cita(cita_str)
+        añadir_log_buffer(user, "/set", fecha=cita_str)  # <- Añades fecha de la cita al log
         print(f"[{user}] Guardó una cita: {cita_str}", flush=True)
         await update.message.reply_text(f"Cita guardada para: {cita_str}")
     except ValueError:
@@ -173,7 +174,11 @@ def procesar_logs():
         for log in logs:
             try:
                 requests.post(GOOGLE_SCRIPT_WEBHOOK,
-                              json={"usuario": log["usuario"], "comando": log["comando"]},
+                              json={
+                                  "usuario": log["usuario"],
+                                  "comando": log["comando"],
+                                  "fecha": log["fecha"]  # <-- enviar fecha del log (la cita si es /set)
+                              },
                               timeout=5)
             except Exception as e:
                 print(f"Error enviando log a Google Sheets: {e}", flush=True)
