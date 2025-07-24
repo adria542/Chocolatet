@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. Puedes escribir /set para guardar una cita y /falta para saber cuanto falta. Además puedes recordar bonitos momentos con /mes 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. Hoy ha sido un dia especial, así que hemos habilitado un nuevo comando, escribe /mes2 y disfrutalo. Además puedes recordar bonitos momentos con /mes 🤍"
     )
 
 
@@ -159,7 +159,7 @@ async def mes_mensaje2(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     Qué sentimiento más maravilloso, eso que revolotea en mi estómago cada vez que te pienso, ese sentimiento que me da ganas de decirte cosas bonitas, de hacerte regalos, de preocuparme por ti, de desearte, de querer verte, de querer hablar contigo, de querer hacer el amor contigo, de querer comer contigo, de querer dormir contigo... En definitiva, de querer vivir contigo, Coret.
     
-    Y quiero que lo sepas: me gustas, me gustas de verdad. No pensaba que alguien me pudiese gustar hasta tal nivel. Yo también me sorprendo cuando recapitulo mi día antes de dormir y solo apareces tú, pero es algo muy bonito, la verdad.
+    Y quiero que lo sepas: me gustas, me gustas de verdad. No pensaba que alguien me pudiese gustar hasta tal nivel. Yo también me sorprendo cuando recapitulo mi día antes de dormir y solo apareces tú, pero es algo muy bonito, la verdad, lo mas bonito que he tenido el placer de sentir.
     
     Creo que puedo resumir este mes en dos palabras, y son: Te quiero. *Te quiero* es la cosa más bonita que he oído a nadie decirme, y es la cosa más bonita que se me ocurre decirte. Y quiero que lo sepas y no se te olvide.
     
