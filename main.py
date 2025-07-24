@@ -144,6 +144,39 @@ async def mes_mensaje(update: Update, context: ContextTypes.DEFAULT_TYPE):
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensaje2(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Segundo mes y segundo mensaje. Este mes ha sido de muchos pensamientos. No te miento si te digo que este ha sido uno de los mejores meses que he vivido nunca. Ha estado lleno de regozijos, fiestas, conciertos, y de algo que ha estado ocupando mi mente de una manera demasiado intensa. Tú, tú has estadi rondando en mi mente todos los dias desde el dia 1 al levantarme hasta hoy mientras escribo este texto has estado presente en cada momento de cada día. Al levantarme ya no puedo no intetar mirar el móvil por eso que dicen que es mala su luz muy de mañana pues lo único que deseo al levantarme es darte los buenos dias.
+    
+    Luego entro a trabajar y sigo pensando en tí, dejo el móvil en la mesa y todas las notificaciones de este me atrotinan pues cualquiera de ellas podria ser tuya y eso me emociona. Luego durante cualquier tarea necesito mas concentración que antes pues no desviar mi atención a tu imagen me es complicado y requiere de un esfuezo mental adicional, pero que me encanta no realizar. Entonces es cuando vienen los reajustes de pantalones y pensamientos mas intensos. Pero no pasa nada pues es algo que me encanta al pensarte.
+    
+    Al salir de trabajar pienso en verte y en lo que me gustaria tener un vehiculo para ir a verte. Cualquier dia es bueno para hacerlo, ya haga sol o nubes pues con cualquier clima tu me iluminas el dia. Y durante todos estos dias cuento las horas, los minutos y los segundos que faltan para verte Coret. Muy contento de haber hecho ese calculo de manera automatica con nuestro bot de telegram. Pero estar deseoso de verte es un efecto que no tiene solución, la única manera de acallar ese gruto es estando contigo porque cada viaje de vuelta desde Oliva a mi casa se me hace cuesta arriba. Cuando la volvere a ver me pregunto, cuando serà ese genial día que repita las maravilas de lo que ha pasado en este? Cuando llegará Señor?
+    
+    Luego al llegar a casa te sigo pensando, te sigo imaginando, te sigo soñando y te sigo sintiendo. Como esto siga así... Voy a terminar siendo el hombre mas feliz que pueda haber, tenerte siempre en mi cabeza es una sensación de lo mas agradable.
+    
+    Este mes ha estado marcado por los festivales no cabe duda. Primero en el pirata en que mano a mano con Izan y luego con Hugo en el Zevra, menudos conzertazos nos dimos. Pero desde el primer dia, desde ese miercoles en el que te tuve que despedir antes de salir hacia allí hasta el último dia del zevra ese bonito domingo de arepas, ya sabia que me faltava un componente importante para estar contento y ese eres tú. De verdad, te veia en todos los lado, en la música, en las diferentes parejas que reboloteavan por allí. en mis ojos cuando miravan a mi alrededor buscandote para poderte abrazar... En todos lados, y esas ganas solo se curaban al verte mi vida.
+    
+    Siento cosas, siento muchas cosas, siento cosas que nunca habia sentido, siento cosas cuando te pienso, siento cosas cuando te veo, siento cosas cuando no te veo y siento cosas cuando te siento. Esas cosas, son... Mágicas, agradables, poderosas e increhibles. Yo no sabia lo que era el amor. De verdad que no. Pero esque ahora es lo que mas siento, es mi sentimiento principal, desde que me levanto hasta que me duermo e incluso en mis sueños.
+    
+    Que sentimiento más maravilloso, eso que revolotea en mi estomago cada vez que te pienso, ese sentimiento que me da ganas de decirte cosas bonitas, de hacerte regalos, de preocuparme por tí, de desearte, de querer verte, de querer hablar contigo, de querer follar contigo, de querer comer contigo, de querer dormir contigo, en definitiva de querer vivir contigo Coret.
+    
+    Y quiero que lo sepas, me gustas, me gustas de verdad. NO pensaba que alguien me pudiese gustar hasta tal nivel, yo también me sorprendo cuando recapitulo mi dia antes de dormir y solo apareces tú, pero es algo muy bonito la verdad.
+    
+    Creo que puedo resumir este mes en dos palabras, y son: Te quiero. Te quiero, es la cosa mas bonita que he oido a nadie decirme, y es la cosa mas bonita que se me ocurre decirte. Y quiero que lo sepas y no se te olvide.
+    
+    Te quiero, te quiero, te quieeeero.
+    
+    Me haces muy feliz, me ha hecho muy feliz este mes, y me harás muy feliz mi siguiente mes, estoy seguro de eso.
+    
+    Muchas gracias por volverte a leer el mensa jehasta el final Coret de verdad que lo aprecio mucho. Espero que te hayan gustado mucho los detalles que te he hecho este mes, incluido este, y quien sabe, puede que los siguientes también te gusten, mantente a la espera de ellos y lo podrás comprobar JAJAjAJA.
+    
+    Como puede ser tan bonita? le pregunté a Dios, y no me respondió, parece que hasta ni el lo sabe...
+    
+    Te quiero Coret 🤍. 1912 por siempre"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
 
 app = Flask(__name__)
 
@@ -153,6 +186,7 @@ application.add_handler(CommandHandler("start", start))
 application.add_handler(CommandHandler("set", set_cita))
 application.add_handler(CommandHandler("falta", cuanto_falta))
 application.add_handler(CommandHandler("mes", mes_mensaje))
+application.add_handler(CommandHandler("mes2", mes_mensaje2))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
