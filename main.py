@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. Hoy ha sido un dia especial, así que hemos habilitado un nuevo comando, escribe /mes2 y disfrutalo. Además puedes recordar bonitos momentos con /mes 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. Hoy ha sido un dia especial, así que hemos habilitado un nuevo comando, escribe /mes3 y disfrutalo. Además puedes recordar bonitos momentos con /mes o /mes2🤍"
     )
 
 
@@ -178,6 +178,27 @@ async def mes_mensaje2(update: Update, context: ContextTypes.DEFAULT_TYPE):
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensaje3(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Tercer mes y aunque, por desgracia las tragedias nos rodeen, no puedo evitar el escribirte. Sabes, no se como he podido soportar estos últimos meses, bueno si lo sé, porque habeis estado conmigo, mis amigos, mi familia... Y tú, creo que no llegas a hacerte una idea de lo importante que es tu presencia, tus mensajes, tu paciencia, tu ganas, tu amor, tus cumplidos, tus fotos, tu, tu no eres consciente de cuanto significas para mí... Este mes ha empezado con fuerza, un precioso dia, cuyo numero ya no voy a poder olvidar, con un cielo preciso, una luna espectacular, y la mejor chica que hay conmigo, después de una mas que agradable velada, con una rosa y con una de las mayores ilusiones que he tenido nunca, te pedí salir. Y con ello, me convertí en lo que llevava meses con ansia de ser, tu novio...
+    
+    Desde ese dia, desde el día en el que puedo considerarme el oficial, el con el que quieres estar, y el que quiere estar contigo, no pasa un día en el que no piense en mi novia, la más preciosa (Aunque aveces ella no lo considere así es un hecho irrefutable), me encanta verte y decir, wow, esta es mi novia, la persona que me hace tan feliz, la que me ilumina las mañanas, los dias, las tardes y las noches, mi novia, la que se preocupa por mí, la que enseño fotos de ella con orgullo, la que quiero presentar, la que quiero que me presente a sus relativos, la que quiero que pase los dias conmigo, la que me hace sonreir con cada notificación y mensaje bonito, la que quiero cuidar siempre, la que quiero abrazar en los días grises y celebrar en los días soleados, la que me inspira a ser mejor, la que me da motivos para soñarla y fuerzas para seguir. Eres tú, mi amor, la que da sentido a cada instante y convierte lo cotidiano en algo extraordinario.
+    
+    Aunque hayan pasado cosas malas, que han pasado y muchas, has estado ahí, te he notado cerca, te he notado presente, y aunque creas que no de verdad que haces mucho por mi, no te infravalores nunca, todo lo que haces pensando en mí, en todo lo que pones el corazón, en todo lo que pones amor por mí, se nota, y tanto que se nota, yo lo noto, y te quiero por cada una de esas cosas que haces y que me hacen setir tan bien en momentos tan necesarios como este, no creas que no.
+    
+    Quiero animarnos a que esto siga así, a que lo hablemos todo, a que disfrutemos cada dia de nuestra confianza y cercania, a que disfrutemos de nuestra compañia, y a que aprovechemos cada uno de esos planes que tenemos pendientes, pero que pronto se convertirán en recuerdos bonitos.
+    
+    Quiero seguir haciendote detalles bonitos, tengo la cabeza llena de ideas, llena de cosas que quiero hacer contigo, llena de recuerdos aun no realizados y llena de sueños por compartir con mi persona favorita.
+    
+    Me encantó ir a verte a Oliva, me emocioné un poco al verte en el trabajo, con ese traje que te queda de fabula. Sabes, cuando estaba caminando al telepizza, estaba nerviso, nervioso de poder vlver a verte, de saber que ese dia iba a poder charlar contigo y que ibamos a salir con mis amigos de una manera ya formal y bonita, y vaya que no defraudó ese día, me encantaron las pizzas, la compañia y sobre todo el paseo a tu casa que fué de lo mas bonito, estar en una noche agradable, con la brisa, nuestros comentarios y tu compañia, es algo que no quiero que cambie, y que disfruto muchisimo, me encantan tus besos, aunque los de despedida sean mas tristes, no puedo negar, que agradezco muchiisimo el tener a alguien que me haga sentir verdaderamente, que es hechar de menos. De verdad que sí.
+    
+    Hay una cosa que me apena, y de verdad que me rompe el corazón, y es el pensar que puede, que no vuelva a escuchar a mi padre hablar, o hablar bien, se que no tengo la culpa y que las cosas pasan como pasan, pero y si hubiesemos salido antes, y si le hubieses odido conocer cuando estaba mejor, es algo que ahora mismo me martiriza y con lo que voy a tener que vivir toda la vida, y cuando me falte de verdad, cuando me falte su presencia, si no ha podido darse ese encuentro, eso será algo que me atormentará el resto de mi vida, pero bueno, intento no ser demasiado duro conmigo mismo y no pensarlo demasiado. Es duro, de verdad que lo es.
+    
+    Y para no terminar con un mal sabor de boca este mensaje, quiero que sepas algo, eres todos los momentos que he pasado contigo, desde el primer mensaje de tinder, pasando por todas las veces que hemos quedado hasta la última videollamada, aunque esté en situaciones dificiles, siempre voy a estar para tí como tu has estado para mí. Eres mi Coret, y te quiero muchichisimo, aunque no lo creas, mas que tú. 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -187,6 +208,7 @@ application.add_handler(CommandHandler("set", set_cita))
 application.add_handler(CommandHandler("falta", cuanto_falta))
 application.add_handler(CommandHandler("mes", mes_mensaje))
 application.add_handler(CommandHandler("mes2", mes_mensaje2))
+application.add_handler(CommandHandler("mes3", mes_mensaje3))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
