@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. Hoy ha sido un dia especial, así que hemos habilitado un nuevo comando, escribe /mes3 y disfrutalo. Además puedes recordar bonitos momentos con /mes o /mes2🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. Aunque lleguemos tarde siempre llegamos, hemos habilitado un nuevo comando, escribe /mes4 y disfrutalo. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
