@@ -228,7 +228,7 @@ application.add_handler(CommandHandler("falta", cuanto_falta))
 application.add_handler(CommandHandler("mes", mes_mensaje))
 application.add_handler(CommandHandler("mes2", mes_mensaje2))
 application.add_handler(CommandHandler("mes3", mes_mensaje3))
-application.add_handler(CommandHandler("mes4", mes_mensaje3))
+application.add_handler(CommandHandler("mes4", mes_mensaje4))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
