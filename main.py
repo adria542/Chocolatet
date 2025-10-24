@@ -218,6 +218,29 @@ Aunque los días no se han hecho más fáciles a partir de ese punto, al menos r
 
     for parte in partes:
         await update.message.reply_text(parte)
+
+
+async def mes_mensajeOctubre(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Octubre, mes de otoño, y en el que, aunque todavía haya un sol abrasador, nos hemos podido ver mucho y muy bien. Primero, me gustaría destacar un evento que para mí fue muy especial, y fue el día que viniste a cenar a casa. Jopé, en serio, la pasé súper bien, y me encantó enseñarte la terraza, que era una de las ilusiones que tenía y por lo que, cada vez, de las muchas veces que subía al terrat a ayudar, me motivaba para hacerlo lo mejor posible, pues sabía que algún día compartiría ese espacio contigo en una agradable cita. Y como tal, aquel día llegó: el día de presentarte a mi madre y, de paso, a mi abuela jsjajaja. Aunque esa noche me llevara algunos palos, nunca la olvidaré, porque al final pudiste comprobar de primera mano que mi madre te aprecia y que le caes bien. Que bueno, al final se hubiese tenido que acostumbrar, porque te verá mucho más.
+
+Y hablando de verte más, creo que ya es buen momento de empezar a hablar del tema principal que creo que ha rodeado este mes, y ha sido el saber y comprobar entre los dos que esta, nuestra relación, no es cualquier cosa, sino la relación. Nuestra relación, y la que tendremos hoy, mañana y nuestro último día aquí. Creo que voy a empezar a hablar de este tema con algo simple, solo con cosas que me van a gustar: me va a gustar verte la cara todos los días, me va a gustar darte un beso de buenos días todos los días en persona, me va a gustar prepararte el desayuno o disfrutar del súper desayuno que algún día me prepararás. Me va a gustar decirte “ya vuelvo a casa” al terminar de trabajar, me va a gustar ver cada outfit con el que salgas de casa conmigo, me va a gustar sacar a pasear al perro contigo (es muy bonito el golden retriever), me va a gustar mucho quejarnos de nuevo de que el gato ha roto algo en la casa, y me va a gustar muchísimo dormir abrazadito a ti cada día de los días que me queden.
+
+Hoy he escuchado una reflexión que me ha gustado. Puede que, leyendo las cosas que me van a gustar, hayas pensado que al final eso son cosas bastante cotidianas, pero, como he escuchado hoy, las relaciones sanas de verdad no son las relaciones peliculeras, con muchísimo drama y con montañas rusas de emociones cada día. Las relaciones sanas de verdad son esas en las que te levantas tranquilo, disfrutas de tu día tranquilo y terminas tu día tranquilo, porque sabes que has elegido bien, que tuviste muchísima suerte el día que conociste a esa persona, y que cada día que pasas a su lado no lo cambiarías por nada. Y creo que nosotros ya hemos cumplido con eso, así que lo que nos queda es disfrutarnos. Disfrutarnos al 100%, disfrutar de las miradas, disfrutar de los saludos, de las caritas de amor, de los juegos, de los momentos inolvidables, de las caricias y de los cariños, que nos recuerdan cada día que lo que sentimos el uno por el otro es lo único realmente importante en esta vida, y es el amor.
+
+Creo que hay una idea que quiero expresar con claridad. Desde que empecé a salir contigo, mi vida, sé que no voy a poder vivir sin ti. Es que tengo una seguridad en mis palabras absoluta: simplemente eres todo lo que quiero. No sé si te habrá pasado alguna vez, pero ha habido más de una vez que, reflexionando, me he parado a pensar, y como buena mente de científico, la curiosidad por saber las posibilidades me ataca. ¿Cuántas posibilidades hay de encontrar algo perfecto? ¿Cuántas posibilidades hay de encontrar una persona que te va a acompañar y que es perfecta para hacerlo? ¿Cuántas posibilidades hay de que la persona con la que vas a compartir el resto de tus días sea todo lo que necesitas, tenga todo lo que quieres y sea a la persona que más amas en este mundo? Pues, a día de hoy, sigo sin poder resolver esos cálculos estadísticos, pero lo que sí sé con seguridad es que ni el mayor premio de la lotería podría igualar esta suerte. Mi vida, no puedo dejar que te vayas de mi lado, no puedo relajarme contigo, no puedo dejar que la persona con la que estoy seguro de que quiero pasar el resto de mis días pase uno solo pensando que no la amo con locura. Sé que soy el hombre más afortunado del mundo, lo SÉ.
+
+Me ha emocionado un poco escribir el último párrafo, la verdad, pero las lágrimas de alegría me las retiraré con mucho orgullo de la cara, hoy y todos los días que vuelva a ocurrir. Quiero recordar la última vez que nos vimos, ¿sabes?, cuando te miré y sonó la música, y me emocioné de la alegría mirándote. Esas lágrimas transportaban el mensaje más sincero que he podido transmitir en mi vida. Cada una de esas lágrimas escribía un poema que describía cada uno de los días que pasan por mi mente pensando en el futuro contigo. Joder, lloré por la alegría que me aporta pensar en una vida contigo. Mi vida, te amo muchísimo y no puedo parar de llorar, porque es que la felicidad rebosa mi cuerpo y produce en él un ansia de estar contigo, una necesidad de compartir contigo todo lo que pueda, unas ganas de vivir contigo el resto de mi vida. Joder, de verdad, nunca dejaré de recordar lo afortunado que soy.
+
+Nos queda tanto por vivir, nos quedan tantas cosas por vivir juntos, nos queda toda una vida. Y si algo me ha enseñado mi padre, si una es la lección que tengo que sacar de él, es la verdadera naturaleza del éxito. Mi padre fue la persona más exitosa que he conocido en mi vida, ¿y sabes por qué triunfó en vida? Porque tuvo todo lo que quería, consiguió lo que le hacía feliz y lo vivió al máximo, que fue una familia con mi madre y con nosotros. Y yo he aprendido bien lo que es el éxito realmente, y puedes estar segura de que las enseñanzas de mi padre no se van a perder: voy a triunfar en la vida, Coret. VOY A SER EXITOSO CONTIGO. Voy a vivir todas las cosas que quiero vivir contigo. Vas a ser la fuente de mi felicidad, y todo lo que nos va a rodear nos va a hacer ser los más ricos del mundo. Mi vida, vamos a ser muy felices, y voy a asegurarme de que así sea.
+
+Creo que, con todas las emociones y lágrimas que he volcado en este texto, ha quedado bastante claro, pero quiero jurar algo en este código de Python que estoy escribiendo: mi corazón es el que ha escrito esto, la sinceridad es la que ha escrito por mí, todo lo que he dicho es cierto o lo terminará siendo. Que no te quepa ninguna duda de que estos son mis más reales sentimientos, y que mis emociones me llevan a amarte con una intensidad mayúscula. Si tengo que resumir este mes en algunas pocas palabras serían: quiero compartir mi vida con mi Vida. Te amo, Coret 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -229,6 +252,7 @@ application.add_handler(CommandHandler("mes", mes_mensaje))
 application.add_handler(CommandHandler("mes2", mes_mensaje2))
 application.add_handler(CommandHandler("mes3", mes_mensaje3))
 application.add_handler(CommandHandler("mes4", mes_mensaje4))
+application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
