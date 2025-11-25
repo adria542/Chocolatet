@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /septiembre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /noviembre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -271,7 +271,7 @@ application.add_handler(CommandHandler("mes2", mes_mensaje2))
 application.add_handler(CommandHandler("mes3", mes_mensaje3))
 application.add_handler(CommandHandler("mes4", mes_mensaje4))
 application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
-application.add_handler(CommandHandler("Octubre", mes_mensajeNoviembre))
+application.add_handler(CommandHandler("Noviembre", mes_mensajeNoviembre))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
