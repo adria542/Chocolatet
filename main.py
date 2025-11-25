@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el dia del mes para poder revisar mensajes bonitos, por ejemplo escribe /octubre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /septiembre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -241,6 +241,24 @@ Creo que, con todas las emociones y lágrimas que he volcado en este texto, ha q
         await update.message.reply_text(parte)
 
 
+async def mes_mensajeNoviembre(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Hoy es 24 de noviembre, y como cada mes, dedico un tiempo a recordar, a expresar, y sobre todo a sentir mientras te escribo. Hoy hace 6 meses desde que nos conocimos; en 6 meses la Tierra da media vuelta al Sol, es decir, estamos viendo la cara opuesta del Sol a la que vimos cuando empezamos a salir. En estos 6 meses han florecido un total de 30 tipos de flores y 28 tipos de frutas diferentes, y hemos sido lo suficientemente afortunados como para poder observar el crecimiento de muchas de ellas, lo cual ha sido maravilloso. Pero lo mejor de estos últimos 6 meses, sin duda, ha sido que esta, nuestra relación, se ha afianzado y consolidado enormemente, pasando a ser el tema principal de mis días: por las mañanas tú, por las tardes tú y por las noches tú. Te has convertido en mi razón: razón para soñar, razón para pensar, imaginar, sentir, amar. Todo, absolutamente todo lo que hago, lo hago pensando en ti. Hablo de ti con mi madre, hablo de ti con mi hermano, con mis amigos; de lo feliz que me haces, de lo contento que me pones y de lo mucho que te amo. Y es que esta es mi nueva realidad, una que nunca dejaré que se pierda: amar.
+
+El mes empezó con una muy buena fiesta de Halloween que me hubiese encantado disfrutar contigo, mi Vida. De verdad que me hubiese gustado mucho, porque ibas preciosísima. Aunque mi madre dijese que no dabas miedo, tu tía tenía razón: ibas de guapa. Qué preciosa eres. Espero que, cuando tenga los ánimos más altos, pueda ir contigo a muchas de estas fiestas y celebraciones, porque quiero disfrutar muchísimo de ti, mi Vida. Es algo que, la verdad, me ilusiona mucho: Navidad, San Valentín, Falles, cumpleaños, aniversario, reuniones familiares… Quiero pasar tantas cosas contigo, quiero crear tantos recuerdos, quiero dejarte grabada en mi retina. Agradezco muchísimo todo lo que hemos vivido ya juntos, pero agradeceré muchísimo también todo lo que nos queda por vivir. Quiero estar a tu lado en todas estas experiencias y agradecer cada segundo de ellas, como hago cada vez que te veo.
+
+No sabes cuánto me hiciste feliz al regalarle algo a mi madre, que la verdad lo está pasando mal. Sabiendo cómo estoy yo, no quiero ni imaginarme cómo debe de sentirse ella; debe de ser durísimo. Y el saber que la persona que tengo a mi lado no solo se da cuenta, sino que dentro de sus capacidades se esfuerza por hacerla sentir mejor y por animarla, Coret, me hizo sentir de putísima madre. Me hizo sentir que me ha tocado la lotería, porque de verdad que son gestos de una persona que es un sol, que eres genial, y que muchísimas gracias por apoyarnos a todos. Te amo por todas esas cosas que haces y me haces sentir. Eres la persona que quiero que mi familia quiera como una más, porque lo mereces, porque sé que vamos a ser todos más felices y porque sé que nosotros también podemos intentar hacerte lo más feliz posible, tratándote lo bien que siempre has merecido ser tratada. Eres un tesoro, de verdad.
+
+Siempre vas a tener un refugio, siempre. Quiero ser la persona que te anime cuando tengas problemas, la persona que está ahí incondicionalmente, la persona que, pase lo que pase, va a tratar de sacarte una sonrisa entre las lágrimas. Mi Vida, no puedes llegar a imaginar, pero ni por asomo, lo que significó para mí verte aquel día en la pizzería. Temblaba como un flan, porque aunque sabía que necesitaba transmitirte seguridad y cariño, estaba súper nervioso por hacerlo bien, y por verte, por hacerte sentir acompañada, y porque supieras que estaba ahí para ti, como quiero que sepas siempre. Que voy a estar a tu lado en cada momento brillante de tu carrera —que sé que serán muchísimos—, pero también en cada momento oscuro o más peliagudo. No soy una persona que está solo en las buenas: yo quiero compartir mi vida contigo, toda ella, y eso incluye todo lo malo que pueda pasarnos. Nunca vas a estar sola, nunca.
+
+Caminar se siente ligero, descansar se siente cómodo, hablar se siente divertidísimo, pensar se siente agradable, soñar se siente placentero, tocar se siente suave, ver se siente armonioso, oír se siente reconfortante, saborear se siente delicioso, sentir se siente amoroso, llorar se siente de alegría, abrazar se siente calmante; tenerte se siente como un lujo.
+
+De verdad, no puedes salir de mi Vida. Necesito que mi abuela te siga saludando, necesito que mi madre te siga conociendo, necesito que mi hermano siga hablando contigo. Como he dicho antes, quiero compartir mi Vida contigo, y no solo las festividades o los buenos momentos, sino también todos esos momentos duros que la vida nos tiene preparados, que sé que vamos a afrontar de la mejor manera; que vamos a ser un equipo, una pareja maravillosa; que vamos a poder solucionarlo todo porque de verdad sé que sentimos un amor puro, un amor que lo vale todo y que vale su peso en oro. Tú vales tu peso en oro. Eres una persona maravillosa, que se esfuerza muchísimo, y por la que doy gracias todos los días. Vales más que un diamante, y no te cambio por nada en el mundo porque eres lo mejor que tengo, mi Vida. Comparte la vida conmigo, ¿de acuerdo? Te amo, Coret. Espero que te haya gustado este mensaje y pequeño resumen de octubre. Sé que mi padre está sonriendo desde arriba viéndome escribir esto. Te amo de corazón, mi Chocolatet 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -253,6 +271,7 @@ application.add_handler(CommandHandler("mes2", mes_mensaje2))
 application.add_handler(CommandHandler("mes3", mes_mensaje3))
 application.add_handler(CommandHandler("mes4", mes_mensaje4))
 application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
+application.add_handler(CommandHandler("Octubre", mes_mensajeNoviembre))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
