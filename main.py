@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Diciembre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Enero para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -304,6 +304,31 @@ Una promesa. Nosotros somos una promesa, y una muy bonita 🤍"""
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajeEnero(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """2026, ya con 23 años pero con el mismo amor, y creo que esto es algo increhíble, un enorme privilegio, algo que no se debe de dar por sentado y por lo que hay que mirar atrás y dar gracias. Y de eso van estos mensajes de hechar la vista ligeramente atrás recordando y reviviendo experiencias que nos han hecho estar donde estamos, que es en el de una grandisima felicidad. Quiero empezar diciendo algo importante, que mientras mire a mi alrededor todo lo que vea a mi alrededor me recuerde a tí es un lujo, que cuando me ponga a pensar tu aparezcas en ellos es un lujo pero sobretodo, lo que mas es un lujo es poder compartir mis dias y el resto de mi vida contigo Tesoro.
+    
+    Quiero que pienses en una cosa, quiero que te imagines como mejor puedas algún momento en el que te hayas sentido un poco mal, o desanimada y aunque sean cosas de uno mismo con su cabeza quiero que te imagines que te doy un abrazo en esos momentos, que te acaricio la cabeza y que te susurro que todo estará bien, juntos todo estará bien siempre... Puede que no siempre esté fidsicamente contigo pero quiero que recuerdes que siempre tendrás a alguien a tu lado, siempre.
+    
+    Pero bueno tras hablar un poquito en esta introducción porqué no nos volvemos a finales de Diciembre? Justo al dia de noche buena, en el que comimos un montón y aunque separados estabamos bien acompañados por nuestras familias y nuestro amor, sabes una cosa que recuerdo con claridad de ese dia? Que acompañaste a tu tio a dar una vuelta con el frio que hace, solo por acompañarle y hacerle sentir mejor, eso es precioso sinceramente, puede que parezca una tontería o algo sin importancia, pero realmente que nos hace querer al resto de personas que nos rodean sinó estás pequeñas cosas que demuestran afecto, cariño y preocupación? No me equivocaba al decir que uno de tus mejores atributos es el querer bien, y me lo demuestras a diario.
+    
+    Al dia siguiente navidad, que se que es una fecha importante y muy querida por tí, y creo que nunca le había dado un significado tan profundo como al de este año. Tanto por la falta de mi padre que aunque no quiera me pesa todos los dias, como por la ilusión y el amor que me transmitias en estas fechas, valores de compromiso, compartir y amor son cosas que no siempre he tenido tan claras, pero que surjen facilisimamente cuando son contigo, porque son y siempre serán sentimientos que voy a tener contigo, mi corazón está en deuda contigo por un tratamiento tan intensivo de terapia amorosa, que ha hecho en muchas mas ocasiones de las que crees que no se desmorone. Y en este momento me gustaría que recordases el epilogo que hice en mi anterior mensaje, "mensajeDiciembre" porque está dedicado a un 24 y 25 cualquiera como esos.
+    
+    Quiero pasar el resto de las navidades contigo, quiero tenerte a mi lado, quiero sentir que estamos unidos, que estamos reforzando una construcción en la que trabajamos a diario y de la que estamos orgullosisimos de mostrar a los demás, quiero mirarte a los ojos cuando te diga feliz navidad, y quiero seguir mirandolos, llenos de ilusión cuando recibas tus regalos, quiero mirarlos cuando nos acostemos a dormir juntos y quiero mirarlos cuando nos despertemos, quiero mirarlos c uando me digas te amo y cuando me recuerdes que no puedo rendirme, quiero mirarlos siempre y por siempre.
+    
+    Al poco tiempo de las navidades llega mi dia, el dia de mi cumpleaños, en el que se celebra mi nacimiento con las personas que amo, en el que tenia muchisima ilusión metida ya que iba a ser una de las primeras veces en las que mis amigos de varios grupos y tu ibais a coincidir en un ambiente discendido y amigable, y no decepciono, ni lo mas minimo, disfruté de cada segundo de ese dia, desde que me levanté hasta que me acosté, y todo fué gracias a mis amigos y a ti, porque fuisteis los que me llenasteis de ilusión y amor. Me encantó charlar contigo, me encantó compartir risas con todos y me sentí super apreciado. Que bonitos regalos desde el proyector, hasta la sudadera, el llavero y el cuadro, de verdad te digo, y te hablo desde el corazón cuando digo que los tuyos son los mejores regalos que me han hecho nunca, no solo porque noto que los hiuciste pensando mucho en mi y porque llevan un trabajo enorme, sino porque en cada uno de ellos hay una huella de tu amor grabada en lo mas profundo de mi corazón 🤍.
+    
+    Además quiero hablar de la preciosa carta que me hiciste, porque si, lo bordaste, no se si sabes una cosa chula, cuando estoy desanimado, o no tan bien, me encanta ir a nuestro chat y ver fotos nuestras, pero también leer mi carta, está tan cargada de amor, tan cargada de cariño, me hace sentir tan bien que siento que me muero de afecto, muchisimas gracias por la carta y por todo lo bonito que escribiste en ella, que es muchisimo, la tengo en favoritos y la releo amenudo, gracias por ella y por todo el amor que me diste ese dia.
+    
+    Otra cosa de la que quiero hablar fué el rato que estuvimos en el hospital, que no voy a negar que fueron horas bastante angustiantes, pero, aunque no te lo creas no cambiaria esos momentos por ningun otro, no había otro lugar en el mundo en el que deseara estar que a tus brazos, cuando recuerdo mi cumpleaños, una sonrisa viene a mi cara en parte porque pude estar a tu lado en un momento que lo estabas pasando mal, y eso es el amor, que eso me haga feliz me dice sin temor a equivocarme que estoy enamoradisimo de ti a mas no poder, porque es el preocuparse y el sentir por la otra persona lo que nos hace humanos de carne y hueso que amamos, pero yo soy muy diferente al resto y lo recuerdo todos los dias, porque yo tengo la suerte de que me ames tu, la mejor persona del mundo entero, y la que va a acompañarme el resto de mis dias.
+    
+    Y ya por último quería hablar un poco de lo mal que lo has pasado a partir de ese dia y lo que está costando tu recuperación, y hay una cosa que quiero que sepas y es que si en algún momento no he estado a la altura de la compañía que necesitabas lo siento, porque mientras escribo esto siento que podría haber hecho mas que estar a tu lado por telefono, se que la situación era dificil pero no se, no dejo de pensar de que alomejor podría haber hecho algo mas y por eso lo siento, lo que si que quiero que tengas claro es que siempre estaré cuando me lo pidas y te acompañaré a todo, porqu eres mi persona favorita y que cuando vivamos juntos no pasarás ni un mal dia sin mi compañía porque no te me podrás quitar de encima JSJAJAJA, dandote cariños, mimandote, cocinandote y haciendo cualquier cosa que necesite mi Reina para que pueda descansar y recuperarse. Eres muy valiente y paciente con esto y es una de las cosas que mas admiro de ti, estoy seguro que para el mensaje del mes que vien estarás mucho mas que perfecta.
+    
+    No se si es algo que tengas por seguro o no, pero nuestro futuro, que aunque no nos demos cuenta lo vivimos a diario, es absolutamente brillante, tanto que me alumbra e impresiona cada vez que lo imagino, viviremos juntos, tendremos una familia preciosa, puede que no lleguemos a ser mega multi millonarios pero seguro que nunca nos faltará de nada y sobre todo lo que nunca nos faltrá será amor, spy un exitoso que todavía tiene todo el exito del mundo por vivir y quiero que sepas que tu tambié, que formas parte y eres la razón de ese exito, eres mi persona favorita y con la que voy a vivir el resto de mis dias, que estoy seguro que el dia que vistas de blanco será el mejor de todos ellos. Te amo mi Vida, eres lo mejor que me ha pasado y no quiero nunca dejar de mirar hacia atrás y volverme loco de lo feliz que soy estando contigo, un besazo y recuperate Hermosa 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -318,6 +343,7 @@ application.add_handler(CommandHandler("mes4", mes_mensaje4))
 application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
 application.add_handler(CommandHandler("Noviembre", mes_mensajeNoviembre))
 application.add_handler(CommandHandler("Diciembre", mes_mensajeDiciembre))
+application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
