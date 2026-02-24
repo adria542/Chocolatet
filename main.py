@@ -331,6 +331,29 @@ No sé si es algo que tengas por seguro o no, pero nuestro futuro, que aunque no
 
     for parte in partes:
         await update.message.reply_text(parte)
+
+async def mes_mensajeFebrero(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Hola, Chocolatet, otro 24 y otro mes en el que dedico un poco de mi tiempo en permitir que mi corazón se exprese con libertad total. Hoy hace 9 meses desde que nos conocimos y, como siempre, este ha sido un mes muy especial para mí, no solo porque he podido compartir nuevas experiencias contigo, sino porque, como siempre, has seguido demostrando lo maravillosamente genial que eres, como persona y como pareja. Eres la mejor, Coret.
+
+Esta vez me gustaría empezar hablando de algo que, aunque siempre he sabido, quiero que tú también seas consciente de ello. Eres ideal para mí, pero hablo en serio, es que siento que toda tú me encajas a la perfección, y quiero contarte unas cuantas de esas piezas que tienes que forman un puzzle precioso junto a mí. Además, quiero que sepas que siempre que he pensado en una relación son cosas que inconscientemente siempre he buscado y que tienes, mi amor. Cariño, miradas cómplices, cuando me das la mano, que me preguntes qué tal estoy, regalos, detalles, que me digas que me amas, que me digas que me quieres, que te guste compartir tiempo conmigo, que te parezca interesante, que me escuches y me comprendas, que me acompañes, que sientas cuando no estoy tan bien, que te preocupes por mí, que me empujes a ser mejor, que me animes, que me motives, que premies mis esfuerzos y que me acompañes en mis caídas, que seas tú misma… Todo esto y todo lo demás que te hace ser tú es lo que me mantiene enamorado de ti hoy y lo que seguirá haciéndolo, porque es lo que te hace ser tú y lo que siempre me seguirá haciendo ser tuyo.
+
+Una vez terminado este pequeño preludio quería hablarte un poco de nuestro mes juntos, que en mi honesta opinión ha estado increíble, y por qué no empezar por el principio. ¿Sabes una cosa? Me ha hecho muchísima ilusión que te hayas ido incorporando a nuestros planes en familia; poco a poco ahora eres una parte muy importante de nosotros. Por ejemplo, el día en el que viniste junto a nosotros a Ondara, en el que pudimos probarnos ropa juntos y comer junto a mi familia mientras reíamos y nos spoileábamos sobre Dexter JSJAJAJAJA. Pero, hablando en serio, fue un día muy especial para mí, y aunque a lo mejor no surgiera de la manera más agradable del mundo, sí que es un día que voy a atesorar en mi corazón porque es realmente especial.
+
+También he tenido la gran suerte de poder acompañarte en los momentos en los que el dolor ha hecho algo de mella en ti, y quiero que sepas que siempre voy a estar ahí para ti. Quiero que puedas contar conmigo cuando enfermes, cuando necesites transporte o simplemente alguien que te acaricie el pelo. Por desgracia no tengo la cura de tus males, pero te puedo jurar que estaré junto a ti para hacerlos lo más llevaderos posibles siempre: acompañarte al médico, hablar con enfermeros, cuidarte en casa cuando vivamos juntos, servirte y mimarte como te mereces. Déjame cuidarte el resto de tu vida mejor de como lo he hecho hasta ahora, mi vida, y eso me hará más feliz que nada en este mundo.
+
+Y otro día que estuvo súper bien para mí, y que es de esos días que realmente son los que hacen una pareja bonita, fue ese pequeño almuerzo que nos dimos, aunque no quisieran darnos la fórmula secreta de los bocadillos especiales JSJAJAJAJA. No, pero realmente fue un día muy agradable, como todos los que comparto contigo, y agradezco mucho que me acompañes en una de las experiencias que más disfruto, como son los almuerzos. Gracias por hacerlos divertidos, cómodos y amorosos, y pensar que antes de conocerte pensaba que nada podía hacer mejor un almuerzo, y ahí estás haciendo que cada segundo de ellos se sienta increíble. Te amo, mi vida, y amo pasar tiempo a tu lado.
+
+Pero ahora vamos al plato fuerte de este mes, que ha sido sin duda tu santo, San Valentín, una fecha que hasta hace poco no tenía la menor importancia para mí. Ahora se ha convertido en un recuerdo precioso gracias a ti. La verdad es que me emocionaba mucho preparar la habitación, y aunque sabía que luego sería mucha limpieza, no podía parar de repartir pétalos de rosa y corazones por doquier, decorando la habitación que nos recibiría más tarde y que tendría que estar a la altura de tal fecha, el Día de los Enamorados. Junto a los olores agradables que pude añadir y los pequeños detalles de regalos que te di, me encantó pasar ese día junto a ti, pero sobre todo quería darte las gracias aquí y ahora por tus regalos. No sabes lo emocionado que estaba viendo cómo esa cajita, que se notaba tan trabajada, me daba un recorrido mental por los mejores recuerdos que tengo contigo, además de los preciosos mensajes que dejaste en cada uno de los besos que sentí como si fuesen tus propios labios. Gracias por ello, y espero que, aunque la cena no fue como esperábamos y tuvieses algo de dolor, ese día fuera tan especial como lo fue para mí, que ya te digo que lo fue muchísimo.
+
+Mi vida, eres lo mejor que tengo y espero que este mensaje te recuerde que cada día contigo es un tesoro más que almaceno y con los que me reencuentro cuando escribo o leo estos mensajes. Por último, admitir que tengo debilidad por imaginar tener hijos contigo, la verdad; este mes lo he pensado muchísimo y sé que va a ser la experiencia que me complete como persona, incluso si lo tengo que llevar con una correa JSJAJAJAJAJ. No, pero en serio, amo la vida que tengo contigo y seguiré trabajando para que el resto de vida que nos quede juntos sea tan buena que solo tengamos buenos recuerdos cuando miremos atrás. Gracias por todo lo que me has dado en febrero y espero haberte correspondido adecuadamente.
+
+Atentamente, el amor de tu vida 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -346,6 +369,7 @@ application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
 application.add_handler(CommandHandler("Noviembre", mes_mensajeNoviembre))
 application.add_handler(CommandHandler("Diciembre", mes_mensajeDiciembre))
 application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
+application.add_handler(CommandHandler("Febrero", mes_mensajeFebrero))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
