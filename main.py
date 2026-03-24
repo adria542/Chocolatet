@@ -354,6 +354,14 @@ Atentamente, el amor de tu vida 🤍"""
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajearzo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """a"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -370,6 +378,7 @@ application.add_handler(CommandHandler("Noviembre", mes_mensajeNoviembre))
 application.add_handler(CommandHandler("Diciembre", mes_mensajeDiciembre))
 application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
 application.add_handler(CommandHandler("Febrero", mes_mensajeFebrero))
+application.add_handler(CommandHandler("Marzo", mes_mensajeMarzo))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
