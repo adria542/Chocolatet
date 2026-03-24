@@ -354,7 +354,7 @@ Atentamente, el amor de tu vida 🤍"""
     for parte in partes:
         await update.message.reply_text(parte)
 
-async def mes_mensajearzo(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def mes_mensajeMarzo(update: Update, context: ContextTypes.DEFAULT_TYPE):
     mensaje_largo = """a"""
 
     partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
