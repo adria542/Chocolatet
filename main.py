@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Febrero para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Abril para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -372,6 +372,26 @@ Quiero estar sentado frente a un lago, con flores, margaritas, rosas, tulipanes,
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajeAbril(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Corazón de melón, te escribo hoy, 24 de abril, para rememorar algunos de los mejores momentos que he pasado a tu lado este mes y los cuales me han hecho sentir tan bien como siempre. Pero antes de nada quería empezar hablando un poco de cómo eres. Eres cómoda, y con cómoda no me refiero a como un cojín, que también, sino que eres una persona con la que es agradable interactuar, eres una persona que intenta hacer sentir mejor con sus palabras, que reconforta y acompaña. Eres encantadora, no podría contar las veces que te he visto sonriendo a una persona que conoces o a algún desconocido mientras hacías algo mundano como comprar, y que con esa sonrisa se ilumine la interacción, es algo muy bonito de ver y que me pasa mucho contigo. Eres valiosa, aportas muchísimo a mi vida, y no solo a la mía, a la de toda la gente que tienes alrededor y con la que hablas, charlas, recuerdas, ayudas, etc... Son algunas cualidades que me gusta destacar de ti porque me parecen cosas buenísimas y que no quiero que pierdas nunca.
+
+También quería contarte un sueño que tengo, y es el de tener hijos contigo, es un deseo, un amor que tengo tan grande por ti que quiero, necesito, ver un reflejo nuestro en una personita pequeñita y adorable. Estoy seguro de que tenerlo supondrá muchos más problemas de los que me puedo llegar a imaginar ahora mismo, pero es que simplemente pensar en todas esas situaciones monas y cariñosas que espero tener con vosotras dos me llena de alegría y no sabes cuánto. Imagínanos, estás volviendo del trabajo, entras por la puerta y ves una pintada en la pared que pone "No ha sido Lara" y luego, cuando investigas más dentro de casa, te la encuentras con unos colores pintándome toda la cara, como la artista que es. Sé que luego tendríamos que limpiar bastante, pero ¿no crees que eso, un recuerdo que tienes tuyo de pequeña, es increíblemente adorable plasmarlo en tu propia hija? Para mí, los recuerdos que todavía no tengo con vosotras dos son los mejores, y quiero y necesito hacer realidad ese sueño, cuidar de una persona, educarla, pensar en su futuro, esforzarme plenamente por ella y desear de todo corazón que triunfe en la vida como sé que haremos nosotros.
+
+Empezamos el mes súper bien, con una escapada a Gandía, al cine a celebrar mi examen, que aunque al final no consiguiera aprobarlo, la recompensa de estar contigo fue maravillosa. Tanto que es uno de los días que recuerdo con mayor cariño de todas las veces que hemos quedado. No sé, hubo algo en ese día que me hizo sentirme tan bien, tener tantos recuerdos bonitos, incluso tener unas fotos maravillosas nuestras en la estantería, que es simplemente wow, qué día tan maravilloso. Cenamos súper bien, tenía muchas ganas de por fin cenar KFC contigo, pero de verdad te lo digo, me lo pasé increíble, y la película estuvo muy muy bien la verdad, la disfruté muchísimo y estuve muy cómodo a tu lado. Era una de las citas que esperaba con más ansia porque es algo como muy de pareja ir al cine juntos y todavía tenía esa espinita clavada por no haber podido tenerla, pero ahora que lo hemos hecho solo quiero tener más, quiero ver muchas películas contigo, quiero disfrutar del cine contigo, es que lo que me pasa es que quiero disfrutar de todo contigo. Te amo, y voy a disfrutar de todas y cada una de las citas que tengamos siempre.
+
+Luego otro momento que quería destacar fue el día que viniste a compartir una comida familiar con nosotros en aquel restaurante tan chulo, sí, aquel de las piedritas JSJAJAJ, era otra de las cosas que tenía muchísimas ganas de hacer contigo, que mi familia nos viera juntos y que disfrutáramos el uno del otro con la diversión y las emociones de mi familia. Ya has visto que tampoco es perfecta, y que a veces gritamos o nos reímos muy fuerte, pero sé que es una familia en la que nos podremos apoyar siempre, tanto yo como tú, y tenlo por seguro de que van a estar de nuestro lado siempre, como yo estaré del tuyo, del tuyo y de la familia que creemos nosotros, tú y yo.
+
+Antes de terminar quería también hablar de una cosa que creo que ha sido súper importante, y que quiero que cuando termines de leer este mensaje reflexiones conmigo. A principios de este mes, y puede que desde antes, cambié un poco mi actitud sobre cómo afrontaba las relaciones íntimas contigo. Durante un tiempo, el simple hecho de dudar sobre tu comodidad en la conversación o interés era suficiente para mí como para que mi mente se ennegreciera y un vórtice de dudas me llevara a intentar detener la interacción, de hecho también evitaba empezarlas, porque el pensar que podía incomodarte, que podría llegar a no gustarte, me asustaba tanto. Tampoco era algo que tuviese en la mente todo el rato, pero no sé, me sentía incómodo, incómodo con esas interacciones, conmigo y con mi libido. Pero gracias a la conversación que tuvimos, a la comunicación abierta que nos esforzamos por tener, creo que está claro que ese bloqueo no nos estaba ayudando a ninguno. Sé que no estuvo bien y por eso te pido mil disculpas, siento si en algún momento te hice sentir mal o no deseada, pero quiero que sepas que es justo lo contrario, me daba miedo que mi deseo tan grande por ti se volviese algo incómodo o que fuese demasiado, así que simplemente lo borré, pero ahora estoy intentando encontrar un mejor equilibrio y espero que se haya notado. Si quieres, ahora cuando termines de leer el mensaje me podrías decir cómo te parece que lo estoy haciendo y si crees que deberíamos cambiar algo o que vamos por buen camino, porque para mí es muy importante hacer esto bien, porque me gustan tanto, me gustan tanto nuestros encuentros íntimos telemáticos que no quiero perderlos nunca.
+
+También quería agradecerte lo comprensiva y amigable que fuiste en ese momento de debilidad, ya sé que puedes estar pensando "claro, soy tu novia, es lo que tengo que hacer", pero en serio, muchísimas gracias, porque para mí en ese momento atajar eso era un mundo, y ahora lo veo como una tontería, y todo gracias a ti. De nuevo, te amo.
+
+Y nada, con esto terminaría un poco de hablar de nuestro mes, es una pena que este mensaje no llegue a mañana porque estoy seguro de que vamos a tener un día increíble, pero bueno, en el próximo mensaje lo hablaremos, que además el próximo mensaje va a ser especial, pues es el mensaje número 12 que te hago, un año entero dedicando mi corazón a abrirme y expresar mis sentimientos por ti en forma de resumen mensual. Lo que empezó siendo una tontería de informático para saber cuánto tiempo exacto nos quedaba para vernos se ha convertido en una auténtica biblioteca de sentimientos, recuerdos y palabras bonitas, y estoy súper orgulloso de ello. Muchas gracias por leer atentamente este mensaje y recuerda que estoy muy ilusionado por nosotros, por nuestra vida y por nuestros hijos. Gracias, mi amor 🤍"""
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -389,6 +409,7 @@ application.add_handler(CommandHandler("Diciembre", mes_mensajeDiciembre))
 application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
 application.add_handler(CommandHandler("Febrero", mes_mensajeFebrero))
 application.add_handler(CommandHandler("Marzo", mes_mensajeMarzo))
+application.add_handler(CommandHandler("Abril", mes_mensajeAbril))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
