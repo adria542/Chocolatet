@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Abril para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Mayo para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -392,6 +392,16 @@ Y nada, con esto terminaría un poco de hablar de nuestro mes, es una pena que e
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajeAbril(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """ Hola Chocolatet, me gusta usar chocolatet, me recuerda al principio, a nuestro principio, el principio de algo precioso, de algo especial, valioso y que con cada vistazo al pasado deslumbra un brillo de cariño, de pasión y de amor. Hoy, exactamente hoy, hace 365 dias que hablamos por primera vez, y, cunado pasó un mes de ese día la verdad que no tenía claro del todo que podría regalarte, sabia que quería darte algún detalle aunque fuese, nunca había hecho regalos a una pareja así que no lo tenia claro del todo, pensé en flores, en una cestita, que luego la hice para tu cumple, incluso en algúna joya, pulsera o collar bonito, pero había algo de todas esas cosas que no me encajaba en ese momento, nos estabamos conociendo, hablabamos mucho, había muchas muestras de cariño, y yo sentía que tenía que destacar, no podía limitarme a hacer un regalo generico como podría haber hecho cualquier otra persona con la chica a la que está conociendo, yo tenía que destacar, tenia que superar cualquier otro regalo que se me ocurriera, no podian haber medias tintas ni detalles al azar. Y cuando pensé en todo lo que habiamos hablado, en todas las conversaciones que habiamos tenido y en como era nuestra relación hasta ese momento, entonces me vino, me vino la idea de algo bonito, personal y en lo que consideraba que era bueno, que es escribirte, pero no podía ser una nota cualquiera, no, tenía que ser algo especial, algo nuestro, de los dos para disfrutar, de los dos para recordar. Y vaya si recordé, intenté resumir nuestro primer mes juntos, y me pareció tan buena idea, una idea tan maravillosa que no dejé de hacerlo, ya no puedo dejar de hacerlo, porque, nunca voy a querer olvidarte, nunca voy a poder desechar la idea de tí de mi cabeza. Tanto como necesitaba hacerte un regalito, necesitaba dejar memoria de tí, de nosotros, y te lo escribí. Y aquí estamos un año después, con 12 mensajes recordandolo todo, y que cuentan la mejor historia de todas, la mejor historia de la que nunca hubiese esperado ser coprotagonista, y esa es nuestra historia de amor, que es absolutamente maravillosa.
+    
+    """
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -410,6 +420,7 @@ application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
 application.add_handler(CommandHandler("Febrero", mes_mensajeFebrero))
 application.add_handler(CommandHandler("Marzo", mes_mensajeMarzo))
 application.add_handler(CommandHandler("Abril", mes_mensajeAbril))
+application.add_handler(CommandHandler("Mayo", mes_mensajeMayo))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
