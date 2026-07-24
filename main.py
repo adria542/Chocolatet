@@ -444,6 +444,18 @@ Tu novio y futuro esposo. 🤍"""
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajeJulio(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """Amoor, te escribo de nuevo en este dia tan especial para, como todos los meses hablarte de las pequeñas cosas, de esas que no siempre se tienen en cuenta, de esas cosas que hacemos, que sabemos tu y yo, y que me parece especial guardarlas atemporalmente en estos mensajes para que puedan ser leidos en cualquier momento por nosotros. Y para mi eso es lo que los hace así, que sean nuestros, que sea las cosas que hacemos juntos y que todo sean recuerdos, si te das cuenta, esto es como todas esas veces que nos decimos que queremos crear recuerdos juntos, pues creo que eso es exactamente lo que hacemos cada mes y por eso vale la pena recordarlos por siempre, porque algún dia nos podrían preguntar algo nuestros hijos o familiares y lo tendremos todo apuntado aquí, la prueba inequivoca de nuestro amor desde el inicio.
+    
+    Quería empezar hablando de algo muy bonito que ha pasado y ha sido nuestras continuas salidas a comer, seguramente este sea el mes que mas nos hemos visto de todos, y es porque cada vez que has terminado de trabajar, en esa beca del ayuntamiento de la que tan orgulloso estoy de que con siguieras, nos vemos, comemos algo rico y compartimos un muy buen rato juntos, lo cual me encanta, desde el pollo frito en el merendero de la marjal, pasando por la ensalada de fruta en la font salà, y incluyendo cada ensalada, pasta y cosas ricas que nos hemos hecho muchos dias, y que se que va a seguir así por un buen tiempo, y esque estos momentos son muy bonitos, no solo por verte la carita preciosa casi todos los dias sinó porque me recuerda mucho a algo que todavía no ha pasado, me recuerda a cuando vivamos juntos y hagamos todas las comidas juntos, no se lo veo como un preview de lo que vamos a vivir y eso me encanta, porque de verdad que llevo muchisimo tiempo deseando vivir contigo y compartir cada minuto de mis dias a tu lado, esque va a ser increhíble compartir cada comida, cada tarde viendo series o haciendo cosas, cada ducha y cada vez que invitemos amigos a hacer cosas, me encanta pensar en eso y me hace muy muy feliz, tu compañía me hace muy muy feliz mi Amor, que lo sepas.
+    
+    """
+
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -464,6 +476,7 @@ application.add_handler(CommandHandler("Marzo", mes_mensajeMarzo))
 application.add_handler(CommandHandler("Abril", mes_mensajeAbril))
 application.add_handler(CommandHandler("Mayo", mes_mensajeMayo))
 application.add_handler(CommandHandler("Junio", mes_mensajeJunio))
+application.add_handler(CommandHandler("Julio", mes_mensajeJulio))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
