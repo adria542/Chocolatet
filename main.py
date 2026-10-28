@@ -54,7 +54,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     añadir_log_buffer(user, "/start")
     print(f"[{user}] Inició el bot con /start", flush=True)
     await update.message.reply_text(
-        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Septiembre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
+        "¡Hola! Soy un bot creado para Valentina y Adrià. A partir de ahora, cada 24 podrás escribir / + el nombre del mes para poder revisar mensajes bonitos, por ejemplo escribe /Octubre para disfrutar el de este mes. Además puedes recordar bonitos momentos con /mes y el numero de mes que quieras leer 🤍"
     )
 
 
@@ -220,7 +220,7 @@ Aunque los días no se han hecho más fáciles a partir de ese punto, al menos r
         await update.message.reply_text(parte)
 
 
-async def mes_mensajeOctubre(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def mes_mensajeOctubre25(update: Update, context: ContextTypes.DEFAULT_TYPE):
     mensaje_largo = """Octubre, mes de otoño, y en el que, aunque todavía haya un sol abrasador, nos hemos podido ver mucho y muy bien. Primero, me gustaría destacar un evento que para mí fue muy especial, y fue el día que viniste a cenar a casa. Jopé, en serio, la pasé súper bien, y me encantó enseñarte la terraza, que era una de las ilusiones que tenía y por lo que, cada vez, de las muchas veces que subía al terrat a ayudar, me motivaba para hacerlo lo mejor posible, pues sabía que algún día compartiría ese espacio contigo en una agradable cita. Y como tal, aquel día llegó: el día de presentarte a mi madre y, de paso, a mi abuela jsjajaja. Aunque esa noche me llevara algunos palos, nunca la olvidaré, porque al final pudiste comprobar de primera mano que mi madre te aprecia y que le caes bien. Que bueno, al final se hubiese tenido que acostumbrar, porque te verá mucho más.
 
 Y hablando de verte más, creo que ya es buen momento de empezar a hablar del tema principal que creo que ha rodeado este mes, y ha sido el saber y comprobar entre los dos que esta, nuestra relación, no es cualquier cosa, sino la relación. Nuestra relación, y la que tendremos hoy, mañana y nuestro último día aquí. Creo que voy a empezar a hablar de este tema con algo simple, solo con cosas que me van a gustar: me va a gustar verte la cara todos los días, me va a gustar darte un beso de buenos días todos los días en persona, me va a gustar prepararte el desayuno o disfrutar del súper desayuno que algún día me prepararás. Me va a gustar decirte “ya vuelvo a casa” al terminar de trabajar, me va a gustar ver cada outfit con el que salgas de casa conmigo, me va a gustar sacar a pasear al perro contigo (es muy bonito el golden retriever), me va a gustar mucho quejarnos de nuevo de que el gato ha roto algo en la casa, y me va a gustar muchísimo dormir abrazadito a ti cada día de los días que me queden.
@@ -479,6 +479,22 @@ Y bueno, creo que hasta aquí está bien hablar de este mes. Ha sido, como sabes
     for parte in partes:
         await update.message.reply_text(parte)
 
+async def mes_mensajeOctubre(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    mensaje_largo = """ Hola mi Preciosidad, mi Tesoro, mi alma, mi Amor, tengo muchos nombres bonitos para ti, y me encanta tenerlos, porque definen bien lo que siento por ti, que es amor, y muchísimo amor. Hoy vuelvo a sacar la pluma para dedicarte unas palabras, y rememorar este mes de octubre que hemos pasado juntos y que tan bueno ha sido, si cierto ha sido que no habrá sido el mes que más nos hemos visto, sí que ha sido muy divertido y bonito, hemos hecho varias cosas muy divertidas y hemos estado cerquita el uno del otro, eso me hace feliz, y no sabes cuánto, todo el tiempo que te veo soy feliz y cuando no lo hago te echo de menos, muchísimo, pienso en tu carita, en tus abrazos, en qué me dirías en ciertos momentos, en qué planes podría hacer contigo y muchas cosas más mi Vida, siempre te tengo en la cabeza, ya sea con la grandiosa imagen de tu presencia, o con la añoranza de ti atrapada en mi mente.
+
+Algo de lo que quería hablar en este mensaje desde que empezó el mes fue el empezar a trabajar juntos. La verdad es que era algo que esperaba con ansias porque tenía muchas ganas de compartir tanto tiempo contigo, en un trabajo que no tiene malas condiciones y que sabía que disfrutaría mucho de tu compañía, y así ha sido, todo el tiempo que paso contigo en el trabajo hace que las horas se me pasen más rápidas, disfruto de tu compañía y todo se me hace mucho más ameno, y todo porque tengo un amor por ti visceral, amo tenerte a mi lado, y agradezco muchísimo los esfuerzos que haces atendiendo a la gente y el trabajo que nos aliviamos al otro, me alegra muchísimo saber que tenemos tanta complicidad incluso en un entorno estresante como es el trabajo y en el que estamos rodeados de personas que no siempre tienen palabras bonitas para nosotros, eso me hace darme cuenta todavía más de que vamos a tener una experiencia de vida juntos increíble, sé que puede que no siempre estemos de acuerdo, puede que incluso pudiésemos llegar a discutir, pero sé que nos amamos, sé que nos seguiremos amando, y sé que nunca nos cansaremos de esforzarnos por el otro como hemos estado haciendo hasta ahora. Te amo mi Vida, y cuanto más comparto contigo más feliz soy.
+
+También quería hablarte de los días que hemos ido a la feria, qué sitio tan bonito para compartir noches contigo, a lo mejor tiene un poquito demasiado de volumen jsjajajaja, pero me gusta mucho porque puedo compartir emociones contigo en atracciones que nos hacen sentirnos mucho, siento no haber querido subir a algunas de las atracciones que tenías ganas de probar mi Vida, la verdad es que es algo que me hace sentir mal aunque sepa que no es algo demasiado importante, no sé, me encantaría que fuese algo que disfrutara para compartirlo contigo porque se veía muy emocionante, pero bueno, no por eso han sido noches malas ni mucho menos y sé que cuando vayamos a un parque de atracciones juntos, ya sea en Madrid o en Benidorm o en donde sea lo vamos a disfrutar muchísimo y vamos a probar unas montañas rusas increíbles. Te amo mi Amor, me han encantado esas noches de cena y atracciones contigo, y justamente por eso, porque eran contigo.
+
+Otra cosa de este mes que me parece importante recordar en este texto ha sido la DANA. La verdad, el domingo pasé miedo por nuestra seguridad, no estaba 100 % seguro de mi habilidad para conducir bajo una lluvia tan intensa, al final no nos pasó nada esa noche, me gustó mucho que te preocuparas por los demás en un día así, me demuestra qué persona eres y qué valores tienes de una manera muy genuina, y amo eso de ti. Lo duro fue el día siguiente, ver todo lo que había pasado y escuchar las historias de los demás, sabiendo que incluso llegó a fallecer gente en lugares donde yo había pasado con el coche momentos antes me hace tener un escalofrío en la espalda cada vez que lo pienso, pero no solo eso, tu instituto a día de hoy sigue sin poder abrir y ha habido muchos más daños materiales, casas arrasadas y gente que lo ha perdido todo, es una sensación extraña saber que tú estás bien pero que hay mucha gente que ha perdido sus vehículos o sus objetos personales de sus casas. Pero no solo por la empatía que pueda tener por esas personas sino también me da miedo pensar que podamos llegar a ser nosotros algún día, me preocupa mucho, y sería algo devastador no cabe duda, pero hay algo que sería peor, mucho peor, que alguno de nosotros sufriese daños o algo peor que no me quiero ni imaginar. Por eso quiero estar siempre junto a ti, siempre, no quiero que vivamos separados nunca, algo que me ha aliviado de esta DANA es que la pasamos juntos y sabía en todo momento cómo te encontrabas, pero me aterra pensar en otra situación similar en la que no se den esas circunstancias. Amor, tenemos que cuidarnos, tenemos que ir con cuidado y tenemos que estar juntos, pase lo que pase eres lo único que no puedo permitirme perder, no me sueltes de la mano nunca.
+
+Y ya por último Coret, muchísimas gracias por ayudarme con los regalos de mi madre, que aunque todavía no haya sido su aniversario sé que nuestros regalos le van a encantar. Gracias por participar en actividades en familia con mi familia y gracias por preocuparte tanto por mi madre y mi abuela, amo muchísimo eso de ti y me hace sentirme orgulloso de la mujer con la que me voy a casar, porque nos vamos a casar, vamos a tener hijos y vamos a envejecer juntos, es lo que más seguro tengo en mi Vida, tú eres mi seguridad en este mundo, eres mi faro y la luz que me ilumina, gracias por ser eso en mi vida y por toda la felicidad que atraes a ella. Gracias por este mes y gracias por ser como eres, la mejor novia del mundo, te amo muchísimo, este mes y todos los que quedan, feliz año y medio juntos mi Vida, qué cosa tan especial y bonita de decir, y qué bonitos van a ser todos nuestros aniversarios, hasta el próximo mes mi Amor, te amo 🤍"""
+    
+    partes = [mensaje_largo[i:i+4000] for i in range(0, len(mensaje_largo), 4000)]
+
+    for parte in partes:
+        await update.message.reply_text(parte)
+
 app = Flask(__name__)
 
 # Creamos la aplicación
@@ -490,9 +506,9 @@ application.add_handler(CommandHandler("mes", mes_mensaje))
 application.add_handler(CommandHandler("mes2", mes_mensaje2))
 application.add_handler(CommandHandler("mes3", mes_mensaje3))
 application.add_handler(CommandHandler("mes4", mes_mensaje4))
-application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
-application.add_handler(CommandHandler("Noviembre", mes_mensajeNoviembre))
-application.add_handler(CommandHandler("Diciembre", mes_mensajeDiciembre))
+application.add_handler(CommandHandler("Octubre25", mes_mensajeOctubre25))
+application.add_handler(CommandHandler("Noviembre25", mes_mensajeNoviembre))
+application.add_handler(CommandHandler("Diciembre25", mes_mensajeDiciembre))
 application.add_handler(CommandHandler("Enero", mes_mensajeEnero))
 application.add_handler(CommandHandler("Febrero", mes_mensajeFebrero))
 application.add_handler(CommandHandler("Marzo", mes_mensajeMarzo))
@@ -501,6 +517,7 @@ application.add_handler(CommandHandler("Mayo", mes_mensajeMayo))
 application.add_handler(CommandHandler("Junio", mes_mensajeJunio))
 application.add_handler(CommandHandler("Agosto", mes_mensajeAgosto))
 application.add_handler(CommandHandler("Septiembre", mes_mensajeSeptiembre))
+application.add_handler(CommandHandler("Octubre", mes_mensajeOctubre))
 
 loop = asyncio.new_event_loop()
 asyncio.set_event_loop(loop)
